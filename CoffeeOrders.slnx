@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="CoffeeOrders.Core/CoffeeOrders.Core.csproj" />
+  <Project Path="CoffeeOrders.WpfApp/CoffeeOrders.WpfApp.csproj" />
+</Solution>
