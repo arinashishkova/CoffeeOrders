@@ -1,12 +1,115 @@
 ﻿<Window x:Class="CoffeeOrders.WpfApp.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CoffeeOrders.WpfApp"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Coffee Orders"
+        Height="550"
+        Width="850"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid Margin="20">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Title -->
+        <TextBlock Grid.Row="0"
+                   Text="Coffee Orders"
+                   FontSize="26"
+                   FontWeight="Bold"
+                   Margin="0,0,0,20"/>
+
+        <!-- Buttons -->
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal"
+                    Margin="0,0,0,15">
+
+            <Button x:Name="AddButton"
+                    Content="Add"
+                    Width="90"
+                    Height="32"
+                    Margin="0,0,10,0"
+                    Click="AddButton_Click"/>
+
+            <Button x:Name="EditButton"
+                    Content="Edit"
+                    Width="90"
+                    Height="32"
+                    Margin="0,0,10,0"
+                    Click="EditButton_Click"/>
+
+            <Button x:Name="DeleteButton"
+                    Content="Delete"
+                    Width="90"
+                    Height="32"
+                    Click="DeleteButton_Click"/>
+        </StackPanel>
+
+        <!-- Search -->
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    Margin="0,0,0,15">
+
+            <TextBlock Text="Search customer:"
+                       VerticalAlignment="Center"
+                       Margin="0,0,10,0"/>
+
+            <TextBox x:Name="SearchTextBox"
+                     Width="250"
+                     Height="30"
+                     TextChanged="SearchTextBox_TextChanged"/>
+        </StackPanel>
+
+        <!-- Orders -->
+        <DataGrid x:Name="OrdersDataGrid"
+                  Grid.Row="3"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  SelectionMode="Single">
+
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="Customer"
+                                    Binding="{Binding CustomerName}"
+                                    Width="*"/>
+
+                <DataGridTextColumn Header="Drink"
+                                    Binding="{Binding DrinkType}"
+                                    Width="*"/>
+
+                <DataGridTextColumn Header="Size"
+                                    Binding="{Binding DrinkSize}"
+                                    Width="*"/>
+
+                <DataGridTextColumn Header="Quantity"
+                                    Binding="{Binding Quantity}"
+                                    Width="*"/>
+
+                <DataGridTextColumn Header="Price"
+                                    Binding="{Binding Price}"
+                                    Width="*"/>
+
+                <DataGridTextColumn Header="Time"
+                                    Binding="{Binding PreparationTime}"
+                                    Width="*"/>
+
+                <DataGridTextColumn Header="Status"
+                                    Binding="{Binding Status}"
+                                    Width="*"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Summary -->
+        <TextBlock x:Name="SummaryTextBlock"
+                   Grid.Row="4"
+                   Text="Orders: 0 | Total: €0.00"
+                   FontWeight="SemiBold"
+                   Margin="0,15,0,0"/>
 
     </Grid>
 </Window>
