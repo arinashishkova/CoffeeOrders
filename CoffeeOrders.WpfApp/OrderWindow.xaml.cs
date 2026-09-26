@@ -23,6 +23,7 @@ namespace CoffeeOrders.WpfApp
         public OrderWindow(CoffeeOrder order) : this()
         {
             Title = "Edit Coffee Order";
+            OrderTitleTextBlock.Text = "Edit Coffee Order";
 
             CustomerNameTextBox.Text = order.CustomerName;
             DrinkTypeComboBox.SelectedItem = order.DrinkType;

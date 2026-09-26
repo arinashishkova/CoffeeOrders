@@ -174,11 +174,11 @@
                                                 Width="*"/>
 
                             <DataGridTextColumn Header="Price"
-                                                Binding="{Binding Price}"
+                                                Binding="{Binding Price, StringFormat={}{0:F2} €}"
                                                 Width="*"/>
 
                             <DataGridTextColumn Header="Time"
-                                                Binding="{Binding PreparationTime}"
+                                                Binding="{Binding PreparationTime, StringFormat={}{0} min}"
                                                 Width="*"/>
 
                             <DataGridTextColumn Header="Status"
